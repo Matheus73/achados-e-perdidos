@@ -1588,3 +1588,634 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 4987)
 
 
+Started GET "/users/sign_in" for ::1 at 2019-12-01 15:28:34 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 622)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 38.4ms | Allocations: 9652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 138ms (Views: 111.5ms | ActiveRecord: 1.0ms | Allocations: 44459)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-12-01 15:28:54 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 204)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 124)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1957)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 6698)
+
+
+Started POST "/users" for ::1 at 2019-12-01 15:29:06 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"1tXddHkVBGcDs0gkYvaIS1lyHao4srO3O+ohHxuZ70CnYl6JG11tLfww5WljHT/4dpN8BFTU1ngO6rKg68/Djw==", "user"=>{"email"=>"lifoxawa@click-mail.top", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lifoxawa@click-mail.top"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "lifoxawa@click-mail.top"], ["encrypted_password", "$2a$11$Q1zFkcDpt1SeQnYd06iArueOsOkvGwX3iU9LDdz57htqWZo0qws2a"], ["created_at", "2019-12-01 18:29:06.952925"], ["updated_at", "2019-12-01 18:29:06.952925"]]
+  [1m[35m (207.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/ideas
+Completed 302 Found in 378ms (ActiveRecord: 208.3ms | Allocations: 12175)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 15:29:07 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1341)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.7ms | Allocations: 8573)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 15:29:10 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 3.3ms | Allocations: 1807)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 8.2ms | ActiveRecord: 0.6ms | Allocations: 10848)
+
+
+Started POST "/ideas" for ::1 at 2019-12-01 15:29:16 -0300
+Processing by IdeasController#create as HTML
+  Parameters: {"authenticity_token"=>"sbN0dZxJn3vSfJpjZaAmYv8ngJTtVKQN2qfre0sb3ysqjCZxe3jDSKRueRcCJjCmOkJG8YTExb2JhUQW6sojAQ==", "idea"=>{"name"=>"aaaaaaa", "description"=>"jjjjjjjjjjjj"}, "commit"=>"Create Idea"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[36mIdea Create (0.3ms)[0m  [1m[32mINSERT INTO "ideas" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "aaaaaaa"], ["description", "jjjjjjjjjjjj"], ["created_at", "2019-12-01 18:29:16.599899"], ["updated_at", "2019-12-01 18:29:16.599899"]]
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[35m (313.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/ideas/4
+Completed 302 Found in 326ms (ActiveRecord: 314.5ms | Allocations: 5439)
+
+
+Started GET "/ideas/4" for ::1 at 2019-12-01 15:29:16 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.6ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:67:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  Rendered ideas/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 281)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 13.2ms | ActiveRecord: 1.1ms | Allocations: 6181)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 15:29:28 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 5882)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 15:29:31 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 3.3ms | Allocations: 916)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1008)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 6088)
+
+
+Started POST "/ideas" for ::1 at 2019-12-01 15:29:39 -0300
+Processing by IdeasController#create as HTML
+  Parameters: {"authenticity_token"=>"dtVdSTtUoCfJREvKrgdCUul3Q07OqoCT3wHmV2fk5w/t6g9N3GX8FL9WqL7JgVSWLBKFK6c64SOMI0k6xjUbJQ==", "idea"=>{"name"=>"Meu pau de oculos", "description"=>"123", "picture"=>#<ActionDispatch::Http::UploadedFile:0x00007f814815ff88 @tempfile=#<Tempfile:/tmp/RackMultipart20191201-24105-1w7vw4q.png>, @original_filename="camisa-preta.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"idea[picture]\"; filename=\"camisa-preta.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Idea"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[36mIdea Create (0.2ms)[0m  [1m[32mINSERT INTO "ideas" ("name", "description", "picture", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Meu pau de oculos"], ["description", "123"], ["picture", "camisa-preta.png"], ["created_at", "2019-12-01 18:29:39.308307"], ["updated_at", "2019-12-01 18:29:39.308307"]]
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[35m (340.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/ideas/5
+Completed 302 Found in 357ms (ActiveRecord: 341.0ms | Allocations: 12366)
+
+
+Started GET "/ideas/5" for ::1 at 2019-12-01 15:29:39 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:67:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  Rendered ideas/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 8.9ms | ActiveRecord: 0.7ms | Allocations: 5804)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 15:29:46 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.5ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1002)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 11.4ms | ActiveRecord: 0.8ms | Allocations: 6063)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 15:33:32 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.3ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 6458)
+
+
+Started GET "/" for ::1 at 2019-12-01 15:33:35 -0300
+Started GET "/ideas" for ::1 at 2019-12-01 15:33:35 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 7003)
+
+
+Started GET "/" for ::1 at 2019-12-01 15:35:26 -0300
+Started GET "/ideas" for ::1 at 2019-12-01 15:35:26 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 7613)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 15:36:16 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.4ms | Allocations: 7598)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 15:36:17 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1005)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 6054)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 15:36:18 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 2.5ms | Allocations: 1382)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1732)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 6966)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 15:36:19 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 5.6ms | Allocations: 919)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1011)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 17.1ms | ActiveRecord: 0.4ms | Allocations: 6095)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 15:36:37 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 1.9ms | Allocations: 1299)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1643)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 7999)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 15:37:30 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 2.5ms | Allocations: 1496)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1840)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 8177)
+
+
+Started POST "/ideas" for ::1 at 2019-12-01 15:37:41 -0300
+Processing by IdeasController#create as HTML
+  Parameters: {"authenticity_token"=>"SK4GcSW0whb3cgX2/TN+rfCf8n6TEKDkwJ6nlgReDz6lEyfaI1LO2gPncx+ZvrKGcKHWUptkXg5+p0n5Fa29mw==", "idea"=>{"Titulo"=>"perdi minha camisa", "Descrição"=>"tatatat", "Imagem"=>#<ActionDispatch::Http::UploadedFile:0x00007f81502161b8 @tempfile=#<Tempfile:/tmp/RackMultipart20191201-24105-urbudk.jpg>, @original_filename="armadura-de-touro-dos-cavaleiros-do-zodiaco-cosplay-D_NQ_NP_933471-MLB25704891319_062017-F.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"idea[Imagem]\"; filename=\"armadura-de-touro-dos-cavaleiros-do-zodiaco-cosplay-D_NQ_NP_933471-MLB25704891319_062017-F.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Idea"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[31mUnpermitted parameters: :Titulo, :Descrição, :Imagem[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[36mIdea Create (0.2ms)[0m  [1m[32mINSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-12-01 18:37:41.359452"], ["updated_at", "2019-12-01 18:37:41.359452"]]
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[35m (459.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/ideas/6
+Completed 302 Found in 470ms (ActiveRecord: 459.9ms | Allocations: 5171)
+
+
+Started GET "/ideas/6" for ::1 at 2019-12-01 15:37:41 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.4ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:67:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  Rendered ideas/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 269)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 9.5ms | ActiveRecord: 0.7ms | Allocations: 6031)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:21:22 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1429)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 0.7ms | Allocations: 8477)
+
+
+Started DELETE "/ideas/6" for ::1 at 2019-12-01 18:21:31 -0300
+Processing by IdeasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q4wLsEH4+E91LIP/jec2LVswM9nvFjDz6DYkfO2fNsBGMSobRx70g4G59RbpavoG2w4X9edizhlWD8oT/GyEZQ==", "id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:67:in `set_idea'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ideas_controller.rb:57:in `destroy'
+  [1m[36mIdea Destroy (0.5ms)[0m  [1m[31mDELETE FROM "ideas" WHERE "ideas"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/ideas_controller.rb:57:in `destroy'
+  [1m[35m (231.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ideas_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/ideas
+Completed 302 Found in 246ms (ActiveRecord: 232.2ms | Allocations: 5352)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:21:31 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 0.6ms | Allocations: 6082)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-01 18:21:33 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 2.9ms | Allocations: 1264)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1608)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 6841)
+
+
+Started POST "/ideas" for ::1 at 2019-12-01 18:21:40 -0300
+Processing by IdeasController#create as HTML
+  Parameters: {"authenticity_token"=>"8heX+daipgPPdG3AmU319OMdu+0dkr4qkw68dv6tsv9pKMX9MZP6MLlmjrT+y+MwJnh9iHQC35rALBMbX3xO1Q==", "idea"=>{"name"=>"Meu pau de oculos", "description"=>"trete"}, "commit"=>"Create Idea"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[36mIdea Create (0.5ms)[0m  [1m[32mINSERT INTO "ideas" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Meu pau de oculos"], ["description", "trete"], ["created_at", "2019-12-01 21:21:40.551184"], ["updated_at", "2019-12-01 21:21:40.551184"]]
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+  [1m[35m (236.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ideas_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/ideas/7
+Completed 302 Found in 258ms (ActiveRecord: 237.6ms | Allocations: 5308)
+
+
+Started GET "/ideas/7" for ::1 at 2019-12-01 18:21:40 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:67:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  Rendered ideas/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 273)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 7.9ms | ActiveRecord: 0.4ms | Allocations: 6028)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:22:11 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1149)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 0.5ms | Allocations: 6215)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:23:34 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.4ms | Allocations: 7752)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:24:14 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:17
+  Rendered ideas/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 17.8ms | ActiveRecord: 0.6ms | Allocations: 7755)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:24:26 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:17
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.4ms | Allocations: 7740)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:24:28 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:17
+  Rendered ideas/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1150)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 6202)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:24:36 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:17
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 0.3ms | Allocations: 7746)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:24:57 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:17
+  Rendered ideas/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 7764)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:25:08 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1417)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 7752)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:25:51 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.3ms | Allocations: 7751)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:26:12 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1415)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.3ms | Allocations: 7738)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:26:19 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.4ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1415)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 22.4ms | ActiveRecord: 0.8ms | Allocations: 7738)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:26:26 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.4ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1415)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 18.3ms | ActiveRecord: 1.0ms | Allocations: 7745)
+
+
+Started DELETE "/ideas/7" for ::1 at 2019-12-01 18:26:36 -0300
+Processing by IdeasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"o7970rKUvQ91uk7GCJsSx86iVI/PZICClVPzcLyTR0NOAlp5tHKxw4EvOC9sFt7sTpxwo8cQfmgrah0frWD15g==", "id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:67:in `set_idea'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ideas_controller.rb:57:in `destroy'
+  [1m[36mIdea Destroy (0.2ms)[0m  [1m[31mDELETE FROM "ideas" WHERE "ideas"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/ideas_controller.rb:57:in `destroy'
+  [1m[35m (241.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ideas_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/ideas
+Completed 302 Found in 254ms (ActiveRecord: 242.2ms | Allocations: 5301)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:26:36 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 9.9ms | ActiveRecord: 0.8ms | Allocations: 6096)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:28:31 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1276)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 0.3ms | Allocations: 7606)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:28:39 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.4ms | Allocations: 87)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 5859)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:28:41 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 6077)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:28:42 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 5088)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:28:43 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 6051)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:28:45 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 5083)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:29:19 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 1.2ms | Allocations: 108)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 16.6ms | ActiveRecord: 0.3ms | Allocations: 6450)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:29:30 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.5ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 6450)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:29:38 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.7ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 6446)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:30:10 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.5ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 6445)
+
+
+Started GET "/pages/info" for ::1 at 2019-12-01 18:30:25 -0300
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/info.html.erb within layouts/application
+  Rendered pages/info.html.erb within layouts/application (Duration: 0.4ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 6445)
+
+
+Started GET "/" for ::1 at 2019-12-01 18:30:41 -0300
+Started GET "/ideas" for ::1 at 2019-12-01 18:30:41 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1270)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.3ms | Allocations: 7013)
+
+
+Started GET "/ideas" for ::1 at 2019-12-01 18:30:43 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.4ms | Allocations: 6065)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-01 18:30:45 -0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/registrations/edit.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 195)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/registrations/edit.html.erb within layouts/application (Duration: 99.2ms | Allocations: 2309)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 120ms (Views: 115.0ms | ActiveRecord: 0.2ms | Allocations: 8603)
+
+
