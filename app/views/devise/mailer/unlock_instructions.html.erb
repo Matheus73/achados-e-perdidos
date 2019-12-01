@@ -1,0 +1,7 @@
+<p>Olá <%= @resource.email %>!</p>
+
+<p>Ocorreram várias tentativas de acessar sua conta, por isso ela foi bloqueada temporariamente.</p>
+
+<p>Click nesse link para desbloquear sua conta:</p>
+
+<p><%= link_to 'Desbloquear', unlock_url(@resource, unlock_token: @token) %></p>
