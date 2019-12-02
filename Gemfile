@@ -11,7 +11,8 @@ gem 'sqlite3', '~> 1.4'
 gem 'carrierwave'   #added by pedru
 gem 'devise'        #added by pedru
 gem 'cancancan'
-
+gem 'bootstrap'
+gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
