@@ -19,8 +19,8 @@
         <td><%= idea.description %></td>
         <td><%= image_tag idea.picture_url, width: 100 if idea.picture.present? %></td>
         <td><%= link_to 'Ver mais', idea %></td>
-        <td><%= link_to 'Editar', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Excluir', idea, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa publicação?' } %></td>
+        <td><%if can? :update, idea%><%= link_to 'Editar', edit_idea_path(idea) %><%end%></td>
+        <td><%if can? :destroy, idea%><%= link_to 'Excluir', idea, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa publicação?' } %><%end%></td>
       </tr>
     <% end %>
   </tbody>
