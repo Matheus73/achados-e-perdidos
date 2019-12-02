@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  load_and_authorize_resource
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   # GET /ideas
@@ -25,7 +26,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
-
+    @idea.user_id = current_user.id
     respond_to do |format|
       if @idea.save
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }

@@ -10,6 +10,7 @@ gem 'sqlite3', '~> 1.4'
 
 gem 'carrierwave'   #added by pedru
 gem 'devise'        #added by pedru
+gem 'cancancan'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
