@@ -1,0 +1,17 @@
+@import "bootstrap";
+@import 'style';
+body{
+    background:#533E7B ;
+}
+
+.navbar{
+    background:#533E7B ;
+}
+
+.navbar-expand-lg{
+    background:#533E7B ;
+}
+
+.navbar-dark{
+    background:#533E7B ;
+}

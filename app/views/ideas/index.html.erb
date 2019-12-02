@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<h1>publicações</h1>
-
+<div class="border">
+<div class="title">
+  <h1>Publicações</h1>
+</div>
+<div class="content">
 <table>
   <thead>
     <tr>
@@ -15,7 +17,7 @@
   <tbody>
     <% @ideas.each do |idea| %>
       <tr>
-        <td><%= idea.name %></td>
+        <td><b><%= idea.name %></b></td>
         <td><%= idea.description %></td>
         <td><%= image_tag idea.picture_url, width: 100 if idea.picture.present? %></td>
         <td><%= link_to 'Ver mais', idea %></td>
@@ -29,3 +31,5 @@
 <br>
 
 <%= link_to 'Nova publicação', new_idea_path %>
+</div>
+</div>
