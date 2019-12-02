@@ -5193,3 +5193,1165 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.0ms | Allocations: 5026)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20191202140633)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_email" varchar, "body" text, "idea_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191202140633"]]
+  [1m[35m (343.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-12-02 11:20:08 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/ideas" for ::1 at 2019-12-02 11:20:08 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 6043)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 150ms (Views: 114.2ms | ActiveRecord: 2.1ms | Allocations: 42964)
+
+
+Started GET "/ideas/new" for ::1 at 2019-12-02 11:20:14 -0300
+Processing by IdeasController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering ideas/new.html.erb within layouts/application
+  Rendered ideas/_form.html.erb (Duration: 9.1ms | Allocations: 4302)
+  Rendered ideas/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4662)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 20.2ms | ActiveRecord: 0.3ms | Allocations: 10658)
+
+
+Started GET "/ideas" for ::1 at 2019-12-02 11:20:16 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 17.7ms | ActiveRecord: 0.5ms | Allocations: 6706)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:20:17 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 25.2ms | Allocations: 1386)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 31.3ms | Allocations: 2753)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 275ms (Views: 39.7ms | ActiveRecord: 1.8ms | Allocations: 20335)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:20:49 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"CPyAfdWsQEJjgtUpyOfxriP02eUgD9yEb8T1wcMUfe0asEZ+6rUIVCqTmTAOhaYjerqLXR5rav4IRI6xAhZABg==", "comment"=>{"user_email"=>"teste@teste", "body"=>"eu tbm !!!!", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_email", "body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_email", "teste@teste"], ["body", "eu tbm !!!!"], ["idea_id", 11], ["created_at", "2019-12-02 14:20:49.861289"], ["updated_at", "2019-12-02 14:20:49.861289"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (404.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/1
+Completed 302 Found in 418ms (ActiveRecord: 404.9ms | Allocations: 6741)
+
+
+Started GET "/comments/1" for ::1 at 2019-12-02 11:20:50 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 296)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 10.6ms | ActiveRecord: 1.0ms | Allocations: 6778)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:20:58 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1054)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 13.7ms | ActiveRecord: 1.0ms | Allocations: 6319)
+
+
+Started GET "/ideas" for ::1 at 2019-12-02 11:21:02 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1011)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 6696)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:21:04 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 1.8ms | Allocations: 760)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1753)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 8.9ms | ActiveRecord: 0.7ms | Allocations: 9094)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-02 11:25:34 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CwY0n4EnWUJLAYtxSkSEih3J8gBVomN8/TF8v/nPOzhLNYvWJOTheb/ib3+Dor3LUoaUiZkA0Xf/N/hW/SUEhw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 2741)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:25:34 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:25:34 -0300
+Processing by IdeasController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-02 11:25:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 619)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 7717)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-02 11:25:44 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"rfAho2V4pJHNQOcLm/eB8+FgJKKvfFOZ7EabgkbzlHeDBmMC6AE+dyu4Rzzn5cPNyudm0vDspzgJh/Fk2tL9Sw==", "user"=>{"email"=>"teste2@teste", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste2@teste"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/ideas
+Completed 302 Found in 132ms (ActiveRecord: 0.3ms | Allocations: 4792)
+
+
+Started GET "/ideas" for ::1 at 2019-12-02 11:25:44 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 6634)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:25:48 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 1.4ms | Allocations: 760)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 9071)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:29:54 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 2.1ms | Allocations: 1115)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2514)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 0.6ms | Allocations: 11122)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:30:08 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"CDMRGh8y+gKodVaYhS3QJgwhh2B9ykXQAPZXxSthGYAG+WYTtK/I+8B6lqKPt5EqQsNMXgpzKVaaZxDzeBtCZw==", "comment"=>{"body"=>"me mama", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "me mama"], ["idea_id", 11], ["created_at", "2019-12-02 14:30:08.391760"], ["updated_at", "2019-12-02 14:30:08.391760"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (338.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/2
+Completed 302 Found in 359ms (ActiveRecord: 340.1ms | Allocations: 6294)
+
+
+Started GET "/comments/2" for ::1 at 2019-12-02 11:30:08 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 286)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 12.4ms | ActiveRecord: 0.9ms | Allocations: 6611)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:30:14 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 31.8ms | Allocations: 1157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 38.3ms | ActiveRecord: 0.9ms | Allocations: 6438)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:31:26 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 0.6ms | Allocations: 7572)
+
+
+Started GET "/comments/2" for ::1 at 2019-12-02 11:31:28 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 0.4ms | Allocations: 6063)
+
+
+Started GET "/comments/2/edit" for ::1 at 2019-12-02 11:31:30 -0300
+Processing by CommentsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 2.3ms | Allocations: 1707)
+  Rendered comments/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2051)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 4577)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    15:     <%= form.label :user_email %>
+    16:     <%= form.text_field :user_email %>
+    17:   </div>-->
+    18:   <% current_user.email :user_email%>
+    19: 
+    20:   <div class="field">
+    21:     <%= form.label :body %>
+  
+app/views/comments/_form.html.erb:18
+app/views/comments/_form.html.erb:1
+app/views/comments/edit.html.erb:3
+Started GET "/comments/2/edit" for ::1 at 2019-12-02 11:31:55 -0300
+Processing by CommentsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 1.3ms | Allocations: 1393)
+  Rendered comments/edit.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1734)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 5033)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: comment, local: true) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--<div class="field">
+    <%= form.label :user_email %>
+    <%= form.text_field :user_email %>
+  </div>-->
+  <%user_email: current_user.user.email%>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <%= form.hidden_field :idea_id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: comment, local: true) do |form| %>
+2:      <% if comment.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% comment.errors.full_messages.each do |message| %>
+8:              <li><%= message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <!--<div class="field">
+15:        <%= form.label :user_email %>
+16:        <%= form.text_field :user_email %>
+17:      </div>-->
+18:      <%user_email: current_user.user.email%>
+19:    
+20:      <div class="field">
+21:        <%= form.label :body %>
+22:        <%= form.text_area :body %>
+23:      </div>
+24:    
+25:      <%= form.hidden_field :idea_id %>
+26:    
+27:      <div class="actions">
+28:        <%= form.submit %>
+29:      </div>
+30:    <% end %>
+  
+app/views/comments/_form.html.erb:18: syntax error, unexpected ':', expecting end
+app/views/comments/_form.html.erb:32: syntax error, unexpected end, expecting end-of-input
+app/views/comments/_form.html.erb:18: syntax error, unexpected ':', expecting end
+app/views/comments/_form.html.erb:32: syntax error, unexpected end, expecting end-of-input
+app/views/comments/_form.html.erb:18: syntax error, unexpected ':', expecting end
+app/views/comments/_form.html.erb:32: syntax error, unexpected end, expecting end-of-input
+app/views/comments/_form.html.erb:18: syntax error, unexpected ':', expecting end
+app/views/comments/_form.html.erb:32: syntax error, unexpected end, expecting end-of-input
+app/views/comments/_form.html.erb:18: syntax error, unexpected ':', expecting end
+app/views/comments/_form.html.erb:32: syntax error, unexpected end, expecting end-of-input
+app/views/comments/_form.html.erb:18: syntax error, unexpected ':', expecting end
+app/views/comments/_form.html.erb:32: syntax error, unexpected end, expecting end-of-input
+app/views/comments/edit.html.erb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/comments/2/edit" for ::1 at 2019-12-02 11:45:57 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 14.5ms | Allocations: 4003)
+  Rendered comments/edit.html.erb within layouts/application (Duration: 16.7ms | Allocations: 4536)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 1.5ms | Allocations: 20660)
+
+
+Started GET "/ideas" for ::1 at 2019-12-02 11:45:59 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 32.6ms | Allocations: 5845)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 60.5ms | ActiveRecord: 1.2ms | Allocations: 17944)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:46:04 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:46:04 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 925)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 6621)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:46:08 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.5ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:71:in `set_idea'
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.8ms | Allocations: 7281)
+
+
+  
+NoMethodError (undefined method `email' for nil:NilClass):
+  
+app/controllers/ideas_controller.rb:16:in `show'
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:46:25 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:71:in `set_idea'
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 2.3ms | Allocations: 22541)
+
+
+  
+NoMethodError (undefined method `email' for nil:NilClass):
+  
+app/controllers/ideas_controller.rb:16:in `show'
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:46:26 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:71:in `set_idea'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 4589)
+
+
+  
+NoMethodError (undefined method `email' for nil:NilClass):
+  
+app/controllers/ideas_controller.rb:16:in `show'
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:46:53 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:71:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 3.8ms | Allocations: 3601)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 5158)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 11.6ms | ActiveRecord: 2.2ms | Allocations: 31815)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:47:01 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"nYMbNxZOCZ86KLVSyScvUKw4fBY/qThBteXgan97NzKTSWw+vdM7ZlIndWjDvW5c4tq3KEgQVMcvdKdcLAFs1Q==", "comment"=>{"body"=>"aaa\r\n", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "aaa\r\n"], ["idea_id", 11], ["created_at", "2019-12-02 14:47:01.313215"], ["updated_at", "2019-12-02 14:47:01.313215"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (198.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/3
+Completed 302 Found in 212ms (ActiveRecord: 199.0ms | Allocations: 6776)
+
+
+Started GET "/comments/3" for ::1 at 2019-12-02 11:47:01 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 293)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 13.7ms | ActiveRecord: 1.1ms | Allocations: 6743)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:47:06 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1307)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 0.9ms | Allocations: 6572)
+
+
+Started DELETE "/comments/3" for ::1 at 2019-12-02 11:47:11 -0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/lRQ25wf73Y5sp3HN2Sldwie4PExTOC6Bk6i4AX5JaXwnifSN4Ldj1G9Xf09/uR7Rnwrz0b1jDyc3+XWVoN+Qg==", "id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[35m (287.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 296ms (ActiveRecord: 288.3ms | Allocations: 5251)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:47:11 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 891)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 6029)
+
+
+Started DELETE "/comments/2" for ::1 at 2019-12-02 11:47:13 -0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VWkfCN4jJGcRsCTZJhTlL7NjTamR2pzMSk/zjM6efahbo2gBdb4Wnnm/5OMsjqQj/YGGl+Zj8ErQ3rS6neQmTw==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[35m (190.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 204ms (ActiveRecord: 191.6ms | Allocations: 5181)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:47:13 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 764)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 0.7ms | Allocations: 5905)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:48:00 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 4570)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 9.8ms | ActiveRecord: 1.5ms | Allocations: 16899)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:48:01 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 762)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 5877)
+
+
+Started GET "/comments/new" for ::1 at 2019-12-02 11:48:02 -0300
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 4.0ms | Allocations: 783)
+  Rendered comments/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 996)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 13.7ms | ActiveRecord: 0.4ms | Allocations: 6274)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:48:05 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"BHuIVytfUgcpqtDt8mJPWYQxSNtyHorXOoCSBzzZkGUkW/aIlzGaU5VGZ1Dg1GQZrPbPEOt1rPm3cQGxGG73cg==", "comment"=>{"body"=>"adsasdasdas", "idea_id"=>""}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 2.0ms | Allocations: 925)
+  Rendered comments/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1017)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 8.0ms | ActiveRecord: 0.4ms | Allocations: 9311)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:48:13 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"fjUQ8j0UVXB+mQBKZQgqvMbAp0nnrQSePotDO2ye+xJw/2f7lolniRaWwHBvkmuwiCJsd5AUaBikGgQNP+Sg9Q==", "comment"=>{"body"=>"adsasdasdasaa", "idea_id"=>""}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 5.1ms | Allocations: 914)
+  Rendered comments/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 12.9ms | ActiveRecord: 0.5ms | Allocations: 6993)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:48:15 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 766)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.7ms | Allocations: 5882)
+
+
+Started GET "/comments/new" for ::1 at 2019-12-02 11:48:30 -0300
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 2.7ms | Allocations: 772)
+  Rendered comments/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 6000)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:48:32 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"UfCXgNot5QnfepTaAXkznIEFh4QwMgPoczK4Svci7/hx0OlfZkMtXWOWI2cTzxjcqcIAT6lZJcb+wyv805WI7w==", "comment"=>{"body"=>"asdasda", "idea_id"=>""}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 2.1ms | Allocations: 914)
+  Rendered comments/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 7.9ms | ActiveRecord: 0.4ms | Allocations: 7000)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:48:38 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 762)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 5896)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:48:41 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:48:41 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 5586)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 0.8ms | Allocations: 11722)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:48:45 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.4ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:71:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 1.7ms | Allocations: 768)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1752)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 9.2ms | ActiveRecord: 1.0ms | Allocations: 9595)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:48:49 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"DJc+svbdUEckcVM+I58ejwR0dbgo594wgKJmm1ueVlgst0BtSrOYE5id5IMxKTXPLLPyc7GM+B4NU/UtfykxTw==", "comment"=>{"body"=>"asdasdasd", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "asdasdasd"], ["idea_id", 11], ["created_at", "2019-12-02 14:48:49.711382"], ["updated_at", "2019-12-02 14:48:49.711382"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (190.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/4
+Completed 302 Found in 219ms (ActiveRecord: 190.7ms | Allocations: 6522)
+
+
+Started GET "/comments/4" for ::1 at 2019-12-02 11:48:49 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 104)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 11.5ms | ActiveRecord: 1.0ms | Allocations: 5892)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:48:54 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 892)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.3ms | ActiveRecord: 0.7ms | Allocations: 6001)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:49:44 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 4697)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 9.3ms | ActiveRecord: 1.7ms | Allocations: 17042)
+
+
+Started GET "/comments/new" for ::1 at 2019-12-02 11:49:46 -0300
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 1.8ms | Allocations: 778)
+  Rendered comments/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 870)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 5998)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:49:48 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 889)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 14.8ms | ActiveRecord: 0.8ms | Allocations: 5999)
+
+
+Started GET "/comments/new" for ::1 at 2019-12-02 11:49:52 -0300
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 4.2ms | Allocations: 772)
+  Rendered comments/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 0.4ms | Allocations: 6008)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:49:53 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"+ftq5OGlMjk8bGYpErKkN0Do8Zuo0o8axLlYz9JQxPnZ2xQ7Xcv6bYCA0ZQABI93aC92UDG5qTRJSMt59uej7g==", "comment"=>{"body"=>"ASDASD", "idea_id"=>""}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 1.9ms | Allocations: 916)
+  Rendered comments/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1008)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 9229)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:49:55 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 889)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 6001)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:50:03 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:50:03 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 5334)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 12.2ms | ActiveRecord: 17.0ms | Allocations: 11379)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:50:05 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.5ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 2.4ms | Allocations: 760)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1812)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 12.1ms | ActiveRecord: 1.2ms | Allocations: 9667)
+
+
+Started DELETE "/comments/1" for ::1 at 2019-12-02 11:50:08 -0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HUUensmWThk0ZFtqnJZHb9R6j/HmF22IbWucueFOAOATj2mXYgt84Fxrm1CWDAZjmphEz5GuAQ73+tuPsjRbBw==", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[35m (194.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 210ms (ActiveRecord: 195.5ms | Allocations: 5356)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:50:08 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 5897)
+
+
+Started DELETE "/comments/4" for ::1 at 2019-12-02 11:50:12 -0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gFOcp2CNMfxYXA1x0kr8qpRUJHpdYftWtoCJ9n4dJruOmeuuyxADBTBTzUvY0L2m2rbvRCrYl9AsEc7ALWd9XA==", "id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[35m (241.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 250ms (ActiveRecord: 241.6ms | Allocations: 5127)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:50:12 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 634)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 0.7ms | Allocations: 5776)
+
+
+Started GET "/comments/new" for ::1 at 2019-12-02 11:50:13 -0300
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 4.9ms | Allocations: 772)
+  Rendered comments/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 6000)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:50:15 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 632)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 0.5ms | Allocations: 5740)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:50:16 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:50:16 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 920)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 6591)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:50:21 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 1.2ms | Allocations: 779)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1651)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 0.4ms | Allocations: 8987)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:50:25 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"9G7TgV0XIANxvAgf1x3vN5EEj7pAPNeEMVX84fBb74XUTq1e4XnoV81Qv6LFq8R3ucMIcdlX8aq8pG9X1OyIkg==", "comment"=>{"body"=>"ASDASDASDAS\r\n", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "ASDASDASDAS\r\n"], ["idea_id", 11], ["created_at", "2019-12-02 14:50:25.789368"], ["updated_at", "2019-12-02 14:50:25.789368"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (198.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/5
+Completed 302 Found in 216ms (ActiveRecord: 199.5ms | Allocations: 6525)
+
+
+Started GET "/comments/5" for ::1 at 2019-12-02 11:50:26 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 97)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 10.8ms | ActiveRecord: 0.7ms | Allocations: 5749)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:51:17 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:51:17 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 8176)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:51:19 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 1.8ms | Allocations: 1091)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2493)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 10.0ms | ActiveRecord: 0.7ms | Allocations: 9996)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:51:24 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"6zlZHYCmdzxvNkYBSgsOw484RnLq5YbU1opw6xsuf1bLGSfCPMi/aNPa8bxYvSWDp//BuXOOoPpbe+NdP5kYQQ==", "comment"=>{"body"=>"ALOW", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "ALOW"], ["idea_id", 11], ["created_at", "2019-12-02 14:51:24.760251"], ["updated_at", "2019-12-02 14:51:24.760251"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (192.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/6
+Completed 302 Found in 207ms (ActiveRecord: 193.3ms | Allocations: 6312)
+
+
+Started GET "/comments/6" for ::1 at 2019-12-02 11:51:24 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 286)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 9.8ms | ActiveRecord: 0.7ms | Allocations: 6618)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:51:56 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1154)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 11.4ms | ActiveRecord: 0.7ms | Allocations: 6413)
+
+
+Started DELETE "/comments/6" for ::1 at 2019-12-02 11:51:58 -0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k2Y5PSpK313YbyA5vpLjdcM0j3mppPFPBmgnIS7MhtGdrE40gdftpLBg4AO0CKJ5jdZER94dncmc+WAXfbbdNg==", "id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[35m (247.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 255ms (ActiveRecord: 247.7ms | Allocations: 5236)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:51:58 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 5888)
+
+
+Started DELETE "/comments/5" for ::1 at 2019-12-02 11:52:01 -0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KczskkgRwA4Sf+CGTFFSOtWNc8SLVlDFg1sztjas4hcnBpub44zy93pwILxGyxM2m2+4+vzvPEMZynSAZda58A==", "id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+  [1m[35m (190.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/comments
+Completed 302 Found in 200ms (ActiveRecord: 190.7ms | Allocations: 5145)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:52:01 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 634)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 0.6ms | Allocations: 5768)
+
+
+Started GET "/" for ::1 at 2019-12-02 11:52:04 -0300
+Started GET "/ideas" for ::1 at 2019-12-02 11:52:04 -0300
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+  ↳ app/views/ideas/index.html.erb:16
+  Rendered ideas/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 929)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 0.4ms | Allocations: 6619)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:52:05 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.0ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 1.4ms | Allocations: 782)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1655)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 7.5ms | ActiveRecord: 0.5ms | Allocations: 8990)
+
+
+Started GET "/ideas/11" for ::1 at 2019-12-02 11:54:01 -0300
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIdea Load (0.3ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Idea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ideas_controller.rb:70:in `set_idea'
+  Rendering ideas/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."idea_id" = ?[0m  [["idea_id", 11]]
+  ↳ app/views/ideas/show.html.erb:15
+  Rendered comments/_form.html.erb (Duration: 2.7ms | Allocations: 1114)
+  Rendered ideas/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2415)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 14.2ms | ActiveRecord: 0.9ms | Allocations: 11027)
+
+
+Started POST "/comments" for ::1 at 2019-12-02 11:54:07 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"Jd2JJUktkX86fjyUoZ0rwUBMmTy45+oLBF9/cjasYaQrF/4s4rCjhlJx/K6rB2rNDq5SAs9eho2ezjhEZdY6Qw==", "comment"=>{"user_email"=>"teste@teste", "body"=>"gay", "idea_id"=>"11"}, "commit"=>"Create Comment"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("user_email", "body", "idea_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_email", "teste@teste"], ["body", "gay"], ["idea_id", 11], ["created_at", "2019-12-02 14:54:07.982853"], ["updated_at", "2019-12-02 14:54:07.982853"]]
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+  [1m[35m (303.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/comments/7
+Completed 302 Found in 329ms (ActiveRecord: 304.8ms | Allocations: 6248)
+
+
+Started GET "/comments/7" for ::1 at 2019-12-02 11:54:08 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:67:in `set_comment'
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 291)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 12.5ms | ActiveRecord: 0.9ms | Allocations: 6631)
+
+
+Started GET "/comments" for ::1 at 2019-12-02 11:54:10 -0300
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/comments/index.html.erb:16
+  Rendered comments/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 13.8ms | ActiveRecord: 1.1ms | Allocations: 6305)
+
+
