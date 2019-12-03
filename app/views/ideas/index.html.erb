@@ -3,6 +3,14 @@
 <div class="title">
   <h1>Publicações</h1>
 </div>
+<div class="mt-3 ml-3">
+<%= form_tag(ideas_path, method: "get") do %>
+    <%= label_tag(:q, "Buscar por:") %>
+    <%= text_field_tag("search") %>
+    <%= submit_tag("buscar") %>
+<% end %>
+</div>
+
 <div class="content">
 <table>
   <thead>
