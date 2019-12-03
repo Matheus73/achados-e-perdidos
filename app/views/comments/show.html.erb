@@ -15,5 +15,5 @@
   <%= @comment.idea_id %>
 </p>
 
-<%= link_to 'Editar', edit_comment_path(@comment) %> |
+<%if can? :update, @comment%><%= link_to 'Editar', edit_comment_path(@comment) %> | <%end%>
 <%= link_to 'Voltar', comments_path %>
