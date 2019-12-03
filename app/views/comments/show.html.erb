@@ -10,10 +10,10 @@
   <%= @comment.body %>
 </p>
 
-<p>
+<!--<p>
   <strong>Idea:</strong>
   <%= @comment.idea_id %>
-</p>
+</p>-->
 
 <%if can? :update, @comment%><%= link_to 'Editar', edit_comment_path(@comment) %> | <%end%>
-<%= link_to 'Voltar', comments_path %>
+<%= link_to 'Voltar', :back %>
