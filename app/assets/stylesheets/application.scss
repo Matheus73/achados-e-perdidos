@@ -56,6 +56,8 @@
     border-style: outset;
     border-width: 5px;
     padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     
 }
 
@@ -63,3 +65,22 @@
     padding-left: 10px;
     padding-top: 10px;
 }
+
+.navbar-toggler{
+    background-color: rgb(151, 123, 202); 
+    border: none;
+    color: white;
+    padding: 10px 25px 15px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.img{
+    padding-left:"15px";
+    margin-top:10px;
+    padding-right:"15px";
+    font-size:16px;
+}
+
